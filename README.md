@@ -84,10 +84,6 @@ Ubuntu 22.04 EC2 instance (ap-south-1):
 The bot didn't poll — every action was APScheduler-cron-triggered, so the
 process was mostly idle between events.
 
-**Post-experiment**, the EC2 is terminated. The dashboard now serves from
-Vercel (https://ai-trading-bot-archive.vercel.app) against a frozen snapshot
-of the SQLite DB and the per-call AI logs, both committed to the
-`experiment-archive` and `vercel-deploy` branches of this repo.
 
 ### Tech stack
 
@@ -172,9 +168,6 @@ the wind-down.
 | **Agent runs** | 955 |
 | **Guardrail events** | 2,519 |
 
-See **https://ai-trading-bot-archive.vercel.app** for the full archive:
-project showcase on `/`, frozen dashboard on `/dashboard`, and the complete
-per-call AI log browser on `/logs`.
 
 ---
 
