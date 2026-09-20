@@ -1,0 +1,150 @@
+# AI Trading Bot Configuration
+
+experiment:
+  start_date: "2026-04-20"
+  duration_days: 180
+  starting_capital: 1000000  # ₹10 lakh
+
+trading:
+  exchanges: ["NSE", "BSE"]
+  products: ["CNC", "MIS"]
+  max_position_pct: 0.20
+  max_sector_pct: 0.35              # Max 35% of deployed capital in one sector
+  max_deployed_pct: 0.80
+  min_cash_buffer_pct: 0.20
+  max_cnc_hold_days: 15
+  unwind_phase_days: 5
+  min_stock_price: 10               # Loosened from 20 to allow Vodafone Idea / low-priced Nifty 500 names
+  min_daily_volume_cr: 1.0
+  no_new_mis_after: "14:30"
+  mis_squareoff_start: "15:00"
+  mis_squareoff_hard_deadline: "15:10"
+  mis_emergency_market_close: "15:12"
+
+trailing_sl:
+  enabled: true
+  breakeven_at_pct: 0.02       # Move SL to entry when unrealized gain >= 2%
+  trail_start_pct: 0.04        # Start trailing when gain >= 4%
+  trail_gap_pct: 0.02          # Trail SL 2% below LTP (above LTP for shorts)
+
+risk:
+  daily_loss_limit_pct: 0.075       # 7.5% — volatile days can open wider than 3%
+  default_sl_pct: 0.02
+  min_sl_pct: 0.005
+  max_sl_pct: 0.05                  # Tightened from 6% after Day-2 review: 10.4% SLs blew 1% of portfolio risk on MAHABANK alone
+  min_confidence: 0.50
+  min_risk_reward: 1.5
+
+resilience:
+  claude_safe_mode_timeout_min: 15
+  sl_health_check_interval_min: 5
+  duplicate_order_window_min: 5
+  max_prompt_tokens: 12000
+  daily_backup_enabled: true
+  backup_destination: "backups/"
+
+corporate_actions:
+  check_enabled: true
+  exclude_on_exdate: true
+
+pipeline:
+  market_pulse_model: "claude-sonnet-4-6"
+  market_pulse_interval_minutes: 30
+  max_watchlist_size: 25
+  min_watchlist_size: 3
+  always_include_held: true
+  watchlist_fallback: "previous"
+  pulse_skip_if_stable: false
+  pulse_skip_threshold_pct: 0.2
+  bulk_indicator_refresh_minutes: 15
+  top_movers_count: 25              # Loosened from 15 for broader coverage at 500-stock universe
+  top_per_sector_count: 3
+  gap_threshold_pct: 2.0
+  high_low_proximity_pct: 2.0
+
+ai:
+  decision_model: "claude-opus-4-7"
+  analysis_model: "claude-sonnet-4-6"
+  news_model: "claude-haiku-4-5-20251001"
+  decision_interval_minutes: 30
+  daily_candles_count: 15
+  enable_prompt_caching: true
+
+# LLM pricing in USD per 1M tokens. Source: https://claude.com/pricing
+llm_pricing:
+  claude-opus-4-7:
+    input_per_1m: 5.00
+    output_per_1m: 25.00
+    cache_read_per_1m: 0.50
+    cache_create_per_1m: 6.25
+  claude-opus-4-6:
+    input_per_1m: 15.00
+    output_per_1m: 75.00
+    cache_read_per_1m: 1.50
+    cache_create_per_1m: 18.75
+  claude-sonnet-4-6:
+    input_per_1m: 3.00
+    output_per_1m: 15.00
+    cache_read_per_1m: 0.30
+    cache_create_per_1m: 3.75
+  claude-sonnet-4-5-20250929:
+    input_per_1m: 3.00
+    output_per_1m: 15.00
+    cache_read_per_1m: 0.30
+    cache_create_per_1m: 3.75
+  claude-haiku-4-5-20251001:
+    input_per_1m: 1.00
+    output_per_1m: 5.00
+    cache_read_per_1m: 0.10
+    cache_create_per_1m: 1.25
+
+dhan:
+  client_id: "${DHAN_CLIENT_ID}"
+  # TOTP-based auto-refresh. Set these on web.dhan.co:
+  #   Profile → DhanHQ Trading APIs → Setup TOTP
+  # Copy the base32 secret shown alongside the QR code into DHAN_TOTP_SECRET.
+  pin: "${DHAN_PIN}"
+  totp_secret: "${DHAN_TOTP_SECRET}"
+  # Optional fallback if TOTP is not configured — manually-set 24h token.
+  access_token: "${DHAN_ACCESS_TOKEN}"
+
+anthropic:
+  api_key: "${ANTHROPIC_API_KEY}"
+
+telegram:
+  bot_token: "${TELEGRAM_BOT_TOKEN}"
+  chat_id: "${TELEGRAM_CHAT_ID}"
+
+database:
+  path: "data/trading_bot.db"
+
+veto:
+  enabled: false
+  timeout_seconds: 60
+
+backup:
+  enabled: true
+  local_dir: "backups/"
+  keep_local_days: 7
+  offsite_enabled: false
+  offsite_remote: "gdrive:trading-bot-backups/"
+
+logging:
+  level: "INFO"
+  log_dir: "logs/"
+  save_prompts: true
+  save_responses: true
+
+etfs:
+  approved:
+    - NIFTYBEES
+    - BANKBEES
+    - GOLDBEES
+    - ITBEES
+    - PSUBNKBEES
+    - JUNIORBEES
+    - LIQUIDBEES
+    - CPSEETF
+    - SILVERBEES
+    - PHARMABEES
+    - MOM50

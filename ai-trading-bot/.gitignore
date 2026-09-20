@@ -1,0 +1,29 @@
+# Secrets
+.env
+config/.env
+
+# Database
+data/*.db
+
+# Logs
+logs/
+
+# Cache
+__pycache__/
+*.pyc
+data/instruments_cache.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups
+backups/
+
+# Virtual environment
+venv/
+.venv/

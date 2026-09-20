@@ -1,0 +1,68 @@
+# Approved ETFs for trading and monitoring
+
+etfs:
+  NIFTYBEES:
+    name: "Nippon India ETF Nifty 50 BeES"
+    benchmark: "NIFTY 50"
+    exchange: NSE
+    sector: broad_market
+
+  BANKBEES:
+    name: "Nippon India ETF Bank BeES"
+    benchmark: "NIFTY BANK"
+    exchange: NSE
+    sector: banking
+
+  GOLDBEES:
+    name: "Nippon India ETF Gold BeES"
+    benchmark: "Gold"
+    exchange: NSE
+    sector: commodity
+
+  ITBEES:
+    name: "Nippon India ETF IT BeES"
+    benchmark: "NIFTY IT"
+    exchange: NSE
+    sector: it
+
+  PSUBNKBEES:
+    name: "Nippon India ETF PSU Bank BeES"
+    benchmark: "NIFTY PSU BANK"
+    exchange: NSE
+    sector: psu_banking
+
+  JUNIORBEES:
+    name: "Nippon India ETF Junior BeES"
+    benchmark: "NIFTY NEXT 50"
+    exchange: NSE
+    sector: broad_market
+
+  LIQUIDBEES:
+    name: "Nippon India ETF Liquid BeES"
+    benchmark: "Liquid"
+    exchange: NSE
+    sector: debt
+
+  CPSEETF:
+    name: "Nippon India CPSE ETF"
+    benchmark: "CPSE Index"
+    exchange: NSE
+    sector: psu
+
+  SILVERBEES:
+    name: "Nippon India Silver ETF"
+    benchmark: "Silver"
+    exchange: NSE
+    sector: commodity
+
+  PHARMABEES:
+    name: "Nippon India ETF Pharma BeES"
+    benchmark: "NIFTY PHARMA"
+    exchange: NSE
+    sector: pharma
+
+  MOM50:
+    name: "Motilal Oswal Momentum ETF"
+    benchmark: "Nifty200 Momentum 30"
+    exchange: NSE
+    sector: factor

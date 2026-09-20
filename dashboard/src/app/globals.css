@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f2;
+  --foreground: #1a1a1a;
+  --card-bg: #ffffff;
+  --border: #e5e2da;
+  --muted: #8a8680;
+  --positive: #16a34a;
+  --negative: #dc2626;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.mono {
+  font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.875rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.tag-buy { background: #dcfce7; color: #16a34a; }
+.tag-sell { background: #fee2e2; color: #dc2626; }
+.tag-success { background: #dcfce7; color: #16a34a; }
+.tag-error { background: #fee2e2; color: #dc2626; }
+.tag-timeout { background: #fef3c7; color: #d97706; }
+.tag-running { background: #dbeafe; color: #2563eb; }

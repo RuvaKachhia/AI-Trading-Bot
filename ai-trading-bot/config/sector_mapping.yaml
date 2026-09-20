@@ -1,0 +1,173 @@
+# Sector Mapping — METADATA ONLY
+# This file does NOT restrict which stocks Claude can trade.
+# The tradeable universe comes from Kite's full instrument list (UniverseFilter).
+# Stocks not listed here simply get sector="" — they're still fully tradeable.
+#
+# Purpose:
+#   1. Labels stocks with sector names for Claude's deep dive context
+#   2. Maps sectors to Nifty index keys for the sector heatmap in Market Pulse
+
+sectors:
+  Banking:
+    etf: BANKBEES
+    index: "NSE:NIFTY BANK"
+    stocks:
+      - HDFCBANK
+      - ICICIBANK
+      - SBIN
+      - KOTAKBANK
+      - AXISBANK
+      - INDUSINDBK
+      - BANDHANBNK
+      - FEDERALBNK
+      - IDFCFIRSTB
+      - PNB
+      - BANKBARODA
+      - CANBK
+      - AUBANK
+
+  IT:
+    etf: ITBEES
+    index: "NSE:NIFTY IT"
+    stocks:
+      - TCS
+      - INFY
+      - WIPRO
+      - HCLTECH
+      - TECHM
+      - LTIM
+      - MPHASIS
+      - COFORGE
+      - PERSISTENT
+      - LTTS
+
+  Pharma:
+    etf: PHARMABEES
+    index: "NSE:NIFTY PHARMA"
+    stocks:
+      - SUNPHARMA
+      - DRREDDY
+      - CIPLA
+      - DIVISLAB
+      - LUPIN
+      - AUROPHARMA
+      - TORNTPHARM
+      - BIOCON
+      - ZYDUSLIFE
+      - ALKEM
+
+  Auto:
+    etf: null
+    index: "NSE:NIFTY AUTO"
+    stocks:
+      - MARUTI
+      - TATAMOTORS
+      - M&M
+      - BAJAJ-AUTO
+      - HEROMOTOCO
+      - EICHERMOT
+      - ASHOKLEY
+      - TVSMOTOR
+      - BALKRISIND
+      - MOTHERSON
+
+  FMCG:
+    etf: null
+    stocks:
+      - HINDUNILVR
+      - ITC
+      - NESTLEIND
+      - BRITANNIA
+      - DABUR
+      - MARICO
+      - GODREJCP
+      - COLPAL
+      - TATACONSUM
+      - VBL
+
+  Metal:
+    etf: null
+    index: "NSE:NIFTY METAL"
+    stocks:
+      - TATASTEEL
+      - JSWSTEEL
+      - HINDALCO
+      - VEDL
+      - COALINDIA
+      - NMDC
+      - NATIONALUM
+      - SAIL
+      - JINDALSTEL
+      - APLAPOLLO
+
+  Energy:
+    etf: null
+    index: "NSE:NIFTY ENERGY"
+    stocks:
+      - RELIANCE
+      - ONGC
+      - BPCL
+      - IOC
+      - NTPC
+      - POWERGRID
+      - ADANIGREEN
+      - TATAPOWER
+      - ADANIENT
+      - GAIL
+
+  Realty:
+    etf: null
+    index: "NSE:NIFTY REALTY"
+    stocks:
+      - DLF
+      - GODREJPROP
+      - OBEROIRLTY
+      - PRESTIGE
+      - BRIGADE
+      - PHOENIXLTD
+      - SOBHA
+      - SUNTECK
+      - LODHA
+
+  Infra:
+    etf: null
+    stocks:
+      - LARSEN
+      - ULTRACEMCO
+      - GRASIM
+      - ACC
+      - AMBUJACEM
+      - SHREECEM
+      - DALMIACEM
+      - RAMCOCEM
+      - IRB
+      - NCC
+
+  Financial_Services:
+    etf: null
+    stocks:
+      - BAJFINANCE
+      - BAJAJFINSV
+      - HDFCLIFE
+      - SBILIFE
+      - ICICIPRULI
+      - MUTHOOTFIN
+      - CHOLAFIN
+      - MANAPPURAM
+      - POONAWALLA
+      - IIFL
+
+  PSU_Bank:
+    etf: PSUBNKBEES
+    index: "NSE:NIFTY PSU BANK"
+    stocks:
+      - SBIN
+      - PNB
+      - BANKBARODA
+      - CANBK
+      - UNIONBANK
+      - IOB
+      - INDIANB
+      - CENTRALBK
+      - MAHABANK
+      - BANKINDIA
