@@ -4,15 +4,7 @@ An autonomous equity-trading experiment on Indian markets (NSE/BSE), with **Clau
 Opus 4.7** making every trading decision and a Next.js dashboard exposing every
 trade, prompt, and decision the bot made.
 
-> **Live archive dashboard:** **https://ai-trading-bot-archive.vercel.app**
->
-> The experiment ran 2026-04-22 → 2026-05-11 (14 trading sessions) and is now
-> concluded. The dashboard is frozen on the final state and serves the full
-> archive — `/` is a project showcase, `/dashboard` has every trade and
-> snapshot, `/logs` lets you browse every Sonnet, Opus, and Haiku call (system
-> prompt, user prompt, response, metadata).
 
----
 
 ## The Experiment
 
@@ -24,15 +16,12 @@ research, and a structured decision loop — and stay out of its way?**
 
 | | |
 |---|---|
-| **Capital** | ₹10,00,000 (paper) |
-| **Universe** | NSE/BSE — large + mid caps + select ETFs (~510 instruments) |
-| **Started** | 2026-04-22 |
 | **Mode** | Paper trading via realistic OHLC fill simulation against live Dhan market data |
 | **Decision cadence** | Every 30 min during market hours (12 cycles/day) |
 | **Models** | Sonnet 4.6 (market pulse) → Opus 4.7 (deep research + trading decisions) → Haiku 4.5 (news summarization) |
 | **Risk gates** | 15+ deterministic guardrails between Claude's decision and order placement |
 
-The bot is mode-blind: Claude never knows it's paper trading. The data format,
+The bot is mode blind: Claude never knows it's paper trading. The data format,
 prompts, and execution interfaces would be identical in a live-trading run.
 
 ---
